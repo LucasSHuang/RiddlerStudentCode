@@ -12,7 +12,9 @@ public class Riddler {
         String decrypted = "";
 
         // TODO: Complete the decryptOne() function
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < encrypted.length(); i++) {
+            char letter = encrypted.charAt(i);
+            int encryptedPositition =  letter - 'a';
 
         }
         return decrypted;
@@ -22,7 +24,11 @@ public class Riddler {
         String decrypted = "";
 
         // TODO: Complete the decryptTwo() function.
-
+        String[] asciiVals = encrypted.split(" ");
+        for (int i = 0; i < asciiVals.length; i++) {
+            int asciiVal = Integer.parseInt(asciiVals[i]);
+            decrypted += (char) asciiVal;
+        }
         return decrypted;
     }
 
