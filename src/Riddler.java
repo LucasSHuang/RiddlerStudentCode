@@ -10,6 +10,8 @@
 public class Riddler {
     private final int SHIFT = 9;
     private final int BINARY_LENGTH = 8;
+    private final int DINGBAT_SHIFT = 9919;
+
     public String decryptOne(String encrypted) {
         String decrypted = "";
         // TODO: Complete the decryptOne() function
@@ -40,7 +42,6 @@ public class Riddler {
 
     public String decryptThree(String encrypted) {
         String decrypted = "";
-
         // TODO: Complete the decryptThree() function.
         for (int i = 0; i < encrypted.length(); i += BINARY_LENGTH) {
             String part = encrypted.substring(i, i + BINARY_LENGTH);
@@ -54,7 +55,11 @@ public class Riddler {
         String decrypted = "";
 
         // TODO: Complete the decryptFour() function.
-
+        for (int i = 0; i < encrypted.length(); i++) {
+            char letter = encrypted.charAt(i);
+            letter = (char) (letter - DINGBAT_SHIFT);
+            decrypted += letter;
+        }
         return decrypted;
     }
 }
