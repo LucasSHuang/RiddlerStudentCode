@@ -9,6 +9,7 @@
 
 public class Riddler {
     private final int SHIFT = 9;
+    private final int BINARY_LENGTH = 8;
     public String decryptOne(String encrypted) {
         String decrypted = "";
         // TODO: Complete the decryptOne() function
@@ -42,9 +43,18 @@ public class Riddler {
 
         // TODO: Complete the decryptThree() function.
         while (!encrypted.isBlank()) {
-            String part = encrypted.substring(0, 9);
-            
-        }
+            String part = encrypted.substring(0, 8);
+            int count = 0;
+            int asciiVal = 0;
+                int num = Integer.parseInt(part);
+                while (num > 0){
+                    asciiVal += (int) ((num % 10) * Math.pow(2, count));
+                    num /= 10;
+                    count ++;
+                }
+                decrypted += (char) asciiVal;
+                encrypted = encrypted.substring(9);
+            }
         return decrypted;
     }
 
