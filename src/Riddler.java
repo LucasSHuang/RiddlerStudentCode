@@ -4,27 +4,23 @@
  * for Adventures in Algorithms
  * At Menlo School in Atherton, CA
  *
- * Completed by: YOUR NAME HERE
+ * Completed by: Lucas Huang
  */
-public class Riddler {
 
+public class Riddler {
+    private final int SHIFT = 9;
     public String decryptOne(String encrypted) {
         String decrypted = "";
-        int shift = 9;
         // TODO: Complete the decryptOne() function
         for (int i = 0; i < encrypted.length(); i++) {
             char letter = encrypted.charAt(i);
             if (Character.isUpperCase(letter)) {
-                char decrypt = (char) ((letter + shift - 'A') % 26 + 'A');
-                decrypted += decrypt;
+                letter = (char) ((letter + SHIFT - 'A') % 26 + 'A');
             }
             else if (Character.isLowerCase(letter)) {
-                char decrypt = (char) ((letter + shift - 'a') % 26 + 'a');
-                decrypted += decrypt;
+                letter = (char) ((letter + SHIFT - 'a') % 26 + 'a');
             }
-            else {
-                decrypted += letter;
-            }
+            decrypted += letter;
         }
         return decrypted;
     }
@@ -47,7 +43,7 @@ public class Riddler {
         // TODO: Complete the decryptThree() function.
         while (!encrypted.isBlank()) {
             String part = encrypted.substring(0, 9);
-
+            
         }
         return decrypted;
     }
