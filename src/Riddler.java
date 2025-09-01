@@ -15,11 +15,11 @@ public class Riddler {
         for (int i = 0; i < encrypted.length(); i++) {
             char letter = encrypted.charAt(i);
             if (Character.isUpperCase(letter)) {
-                char decrypt = (char) ((letter - shift - 'A') % 26 + 'A');
+                char decrypt = (char) ((letter + shift - 'A') % 26 + 'A');
                 decrypted += decrypt;
             }
             else if (Character.isLowerCase(letter)) {
-                char decrypt = (char) ((letter - shift - 'a') % 26 + 'a');
+                char decrypt = (char) ((letter + shift - 'a') % 26 + 'a');
                 decrypted += decrypt;
             }
             else {
