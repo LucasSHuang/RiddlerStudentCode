@@ -42,19 +42,11 @@ public class Riddler {
         String decrypted = "";
 
         // TODO: Complete the decryptThree() function.
-        while (!encrypted.isBlank()) {
-            String part = encrypted.substring(0, 8);
-            int count = 0;
-            int asciiVal = 0;
-                int num = Integer.parseInt(part);
-                while (num > 0){
-                    asciiVal += (int) ((num % 10) * Math.pow(2, count));
-                    num /= 10;
-                    count ++;
-                }
-                decrypted += (char) asciiVal;
-                encrypted = encrypted.substring(9);
-            }
+        for (int i = 0; i < encrypted.length(); i += BINARY_LENGTH) {
+            String part = encrypted.substring(i, i + BINARY_LENGTH);
+            int asciiVal = Integer.parseInt(part, 2);
+            decrypted += (char) asciiVal;
+        }
         return decrypted;
     }
 
