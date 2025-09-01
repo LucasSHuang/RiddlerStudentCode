@@ -10,12 +10,21 @@ public class Riddler {
 
     public String decryptOne(String encrypted) {
         String decrypted = "";
-
+        int shift = 9;
         // TODO: Complete the decryptOne() function
         for (int i = 0; i < encrypted.length(); i++) {
             char letter = encrypted.charAt(i);
-            int encryptedPositition =  letter - 'a';
-
+            if (Character.isUpperCase(letter)) {
+                char decrypt = (char) ((letter - shift - 'A') % 26 + 'A');
+                decrypted += decrypt;
+            }
+            else if (Character.isLowerCase(letter)) {
+                char decrypt = (char) ((letter - shift - 'a') % 26 + 'a');
+                decrypted += decrypt;
+            }
+            else {
+                decrypted += letter;
+            }
         }
         return decrypted;
     }
@@ -36,7 +45,10 @@ public class Riddler {
         String decrypted = "";
 
         // TODO: Complete the decryptThree() function.
+        while (!encrypted.isBlank()) {
+            String part = encrypted.substring(0, 9);
 
+        }
         return decrypted;
     }
 
